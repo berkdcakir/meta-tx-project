@@ -1,17 +1,20 @@
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  const [deployer] = await hre.ethers.getSigners();
   console.log("🚀 Deploying with:", deployer.address);
 
-  const Token = await ethers.getContractFactory("TestUSDC");
-  const token = await Token.deploy(); 
+  const Token = await hre.ethers.getContractFactory("TestUSDC");
+  const token = await Token.deploy(deployer.address); // ✅ owner olarak deployer'ı geçiriyoruz
+
   await token.waitForDeployment();
 
-  console.log("✅ TestUSDC deployed to:", await token.getAddress());
+  const tokenAddress = await token.getAddress();
+  console.log("✅ TestUSDC deployed to:", tokenAddress);
 }
 
 main().catch((error) => {
-  console.error(error);
+  console.error("❌ Deploy failed:", error);
   process.exitCode = 1;
 });
+
