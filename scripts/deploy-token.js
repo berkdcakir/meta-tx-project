@@ -5,7 +5,7 @@ async function main() {
   console.log("🚀 Deploying with:", deployer.address);
 
   const Token = await hre.ethers.getContractFactory("TestUSDC");
-  const token = await Token.deploy(deployer.address); // ✅ owner olarak deployer'ı geçiriyoruz
+  const token = await Token.deploy(deployer.address); 
 
   await token.waitForDeployment();
 

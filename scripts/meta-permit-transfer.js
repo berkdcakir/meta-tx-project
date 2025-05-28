@@ -8,7 +8,7 @@ async function main() {
 
   const tokenAddress = process.env.TOKEN_ADDRESS;
   const metaTxAddress = process.env.METATX_CONTRACT;
-  const to = "0xYourReceiverAddressHere"; // B kişisinin adresi
+  const to = "0xYourReceiverAddressHere"; 
 
   const abi = [
     "function nonces(address) view returns (uint256)",
@@ -22,7 +22,7 @@ async function main() {
 
   const amount = ethers.parseUnits("1.0", 6);
   const nonce = await token.nonces(userWallet.address);
-  const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 saat içinde geçerli
+  const deadline = Math.floor(Date.now() / 1000) + 3600; 
 
   const domain = {
     name: "Test USD Coin",

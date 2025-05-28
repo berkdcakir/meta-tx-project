@@ -10,11 +10,11 @@ async function main() {
   const metaTxAddress = process.env.METATX_CONTRACT;
   const targetAddress = process.env.USER_ADDRESS;
 
-  const tokenName = "Test USD Coin"; // Bu ad token.sol içindeki ile birebir aynı olmalı
-  const version = "1"; // ERC20Permit için default
+  const tokenName = "Test USD Coin"; 
+  const version = "1"; 
   const chainId = (await provider.getNetwork()).chainId;
 
-  const wallets = JSON.parse(fs.readFileSync("wallets.json")); // 🔧 DİKKAT: sadece private key listesi olmalı
+  const wallets = JSON.parse(fs.readFileSync("wallets.json")); 
   const fromList = [];
   const amountList = [];
   const deadlineList = [];
